@@ -15,7 +15,7 @@ var min_y = 0;
 var max_y = boardHeight - 120;
 var filled_areas = new Array();
 
-var CounterOriginalTimer = 5;
+var CounterOriginalTimer = 30;
 var CounterCurrentTimer = 0;
 var CounterOn = false;
 var Counter ;
