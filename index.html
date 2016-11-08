@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>5S Numbers Game</title>
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="description" content="5s Numbers Game">
+    <meta name="keywords" content="5S, Kaizen, Lean, seiri, seiton, seiso, seiketsu, shitsuke">
+
+    <script type="text/javascript" src="./js/jquery-2.2.3.min.js"></script>
+    <script src="./js/jquery.peity.min.js"></script> 
+    <link href="./css/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+    <div style="margin-left:auto; margin-right:auto; width:500px; text-align:center;">
+        <div id="progressBar" class="progressbar-green" style="visibility:hidden;"><div></div></div>
+    </div>
+
+    <div id="board" style=" ">
+        <div id="dialog-wrapper"></div> 
+
+        <div id="quadrant1" class="quadrant" style="top:0%; left:0%;"></div>
+        <div id="quadrant2" class="quadrant" style="top:0%; left:33.3%;"></div>
+        <div id="quadrant3" class="quadrant" style="top:0%; left:66.6%;"></div>
+
+        <div id="quadrant4" class="quadrant" style="top:33.3%; left:0%;"></div>
+        <div id="quadrant5" class="quadrant" style="top:33.3%; left:33.3%;"></div>
+        <div id="quadrant6" class="quadrant" style="top:33.3%; left:66.6%;"></div>
+
+        <div id="quadrant7" class="quadrant" style="top:66.6%; left:0%;"></div>
+        <div id="quadrant8" class="quadrant" style="top:66.6%; left:33.3%;"></div>
+        <div id="quadrant9" class="quadrant" style="top:66.6%; left:66.6%;"></div>
+
+    </div>
+
+
+    
+    <div id="dialog1" class="dialog">
+        <h2>Understanding the concepts of 5S methodology.</h2>
+
+        <div class="board-instruction" style="margin-top:20px; margin-bottom:20px;">
+            The purpose of this little fun game is to introduce people to the 5S Methodology. 
+            It demonstrate the benefits of implementing 5S in the workspace, and in your personal life. 
+        </div>
+
+        <div class="board-instruction" style="margin-top:80px;">
+            <div style="background-image: url('./images/board-tile.png'); width:150px; padding:10px; margin-left:auto; margin-right:auto; margin-bottom:10px;">
+                <img src="./images/tile-1.png">  <img src="./images/tile-50.png" style="margin-left:20px;">
+            </div>
+            This board is your current workstation, and your goal is to click on each card, in sequence, from 1 to 50 . You will have 30 seconds to accomplish this task.
+        </div>
+
+        <p>
+            <button onClick="StartRound1();" class="btn">Start</button>
+        </p>
+    </div>
+
+
+
+    <div id="dialog2" class="dialog">
+        <div class="scorebox">You scored : <span id="score1"></span></div>
+
+        <h2>Not easy right ? Luckily, we can use 5S to improve your score.</h2>
+
+        <div class="board-instruction" style="margin-top:20px;">
+            The first concept of 5S is Sort. At this step, we remove all unnecessary items. 
+            It's much easier and safer to work in a cleaner environment.
+        </div>
+
+        <div class="board-instruction" style="margin-top:50px;">
+            Since we don't need number over 50, let's remove them.
+        </div>
+        
+        <div class="board-instruction" style="margin-top:20px;">
+            Let's try again, to see your improvement !
+        </div>
+            
+        <p>
+            <button onClick="StartRound2();" class="btn">Start</button>
+        </p>
+    </div>
+
+
+
+    <div id="dialog3" class="dialog">
+        <div class="scorebox">You scored : <span id="score2"></span></div>
+
+        <div class="board-instruction" style="margin-top:20px;">
+            Good ! It was a little bit easier. But we can still improve your score.
+        </div>
+
+        <div class="board-instruction" style="margin-top:20px;">
+            The second concept is Shine. At this point, we clean our workspace. 
+            Let's straighten the cards, and remove colors so all cards are the same.
+        </div>
+
+        <div class="board-instruction" style="margin-top:20px;">
+            Another concept in 5S is Set in Order. 
+            We arrange all necessary items so that they can be easily 
+            selected for use. So, let's sort the cards in quadrants.
+        </div>
+        <p><img src="images/quadrant.png"></p>
+        <div class="board-instruction" style="margin-top:20px;">
+            Card 1 will be in quadrant 1, Card 2 in quandrant 2.... Card 10 will be in 
+            quadrant 1. Look at the picture to visualize the quadrants.
+        </div>
+        <br>
+        
+        <p>
+            <button onClick="StartRound3();" class="btn">Start</button>
+        </p>
+    </div>
+
+
+
+    <div id="dialog4" class="dialog">
+        <div class="scorebox">You scored : <span id="score3"></span></div>
+
+        <div class="board-instruction" style="margin-top:20px;">
+            What a great improvement !
+        </div>
+
+        <div class="board-instruction" style="margin-top:20px;">
+            Let's do the Standardize and Sustain of 5S. It consist of 
+            standardize the best practices in the work area. Sustain consist of keeping in 
+            proper working order.
+        </div>
+
+        <div class="board-instruction" style="margin-top:20px;">
+            Since we need to click the card 1 to 50 in sequence, it seem logical to reorganise them 
+            in a standard way to make our job as easy as possible.
+        </div>
+
+
+        <p>
+            <button onClick="StartRound4();" class="btn">Start</button>
+        </p>
+    </div>
+
+
+
+    <div id="dialog5" class="dialog">
+        <div class="scorebox">You scored : <span id="score4"></span></div>
+
+        <p>
+            <strong>Look just how things improved.</strong>
+        </p>
+
+        <p>
+            <table class="score-table" >
+                <tr>
+                    <th>No 5S</th><th>Sorted</th><th>Set in Order &amp; Shine</th><th>Standardized</th>
+                </tr>
+                <tr>
+                    <td><span id="score1-donut">0/50</span></td>
+                    <td><span id="score2-donut">0/50</span></td>
+                    <td><span id="score3-donut">0/50</span></td>
+                    <td><span id="score4-donut">0/50</span></td>
+                </tr>
+                <tr>
+                    <td><span class="score-label" id="score1-label"></span></td>
+                    <td><span class="score-label" id="score2-label"></span></td>
+                    <td><span class="score-label" id="score3-label"></span></td>
+                    <td><span class="score-label" id="score4-label"></span></td>
+                </tr>
+            </table>
+
+        </p>
+
+        <div class="board-instruction" style="margin-top:20px;">
+            I encourage you to learn more about 5S. There's a lot of articles on the internet talking on the subject.<br><br>
+            You can start by looking on wikipedia :<br>
+            <a href="https://en.wikipedia.org/wiki/5S_(methodology)">https://en.wikipedia.org/wiki/5S_(methodology)</a> 
+
+        </div>
+
+        <p>
+            <button onClick="StartRound1();" class="btn">Start Over</button>
+        </p>
+    </div>
+
+
+</body>
+
+<script src="./js/game.js"></script> 
+
+<script id="template-numbers" type="text/x-custom-template">
+    <div class="board-numbers"></div>
+</script>
+
+</html>
+
